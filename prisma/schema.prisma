@@ -35,7 +35,7 @@ model Node {
 }
 
 model Edge {
-    id @id @default(autoincrement())
+    id Int @id @default(autoincrement())
     fromNode Node @relation("OutgoingEdges", fields: [fromNodeId], references: [id])
     fromNodeId Int
     toNode Node @relation("IncomingEdges", fields: [toNodeId], references: [id])
