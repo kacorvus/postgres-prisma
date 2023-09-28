@@ -2,7 +2,7 @@ import prisma from '../lib/prisma'
 
 async function main() {
   const response = await Promise.all([
-    prisma.Graph.upsert({
+    prisma.graph.upsert({
       where: { name: 'graph 1' },
       update: {},
       create: {
