@@ -2,6 +2,14 @@ import prisma from '../lib/prisma'
 
 async function main() {
   const response = await Promise.all([
+    prisma.Graph.upsert({
+      where: { name: 'graph 1' },
+      update: {},
+      create: {
+        name: 'graph 1',
+      },
+    }),
+
     prisma.users.upsert({
       where: { email: 'rauchg@vercel.com' },
       update: {},
