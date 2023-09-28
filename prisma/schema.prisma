@@ -18,3 +18,9 @@ model users {
   image     String
   createdAt DateTime @default(now())
 }
+
+model Graph {
+  id Int @id @default(autoincrement())
+  name String
+  // TODO: nodes
+}

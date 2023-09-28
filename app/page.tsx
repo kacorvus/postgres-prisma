@@ -11,13 +11,13 @@ import prisma from '@/lib/prisma'
 export const preferredRegion = 'home'
 export const dynamic = 'force-dynamic'
 
-async function getUsers() {
-  const users = await prisma.users.findMany()
-  return users
+async function getGraphs() {
+  const graphs = await prisma.graph.findMany()
+  return graphs
 }
 
 export default async function Home() {
-  const users = await getUsers()
+  const graphs = await getGraphs()
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
@@ -29,7 +29,7 @@ export default async function Home() {
         <ExpandingArrow />
       </Link>
       <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        {users[0].name}
+        {graphs.length()}
       </h1>
       <Suspense fallback={<TablePlaceholder />}>
         <Table />
