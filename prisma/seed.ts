@@ -19,6 +19,28 @@ async function main() {
         },
       },
     }),
+    prisma.node.upsert({
+      where: { id: 2 },
+      update: {},
+      create: {
+        label: 'node 2',
+        graph: {
+          connect: { id: 1},
+        },
+      },
+    }),
+    prisma.edge.upsert({
+      where: { id: 1 },
+      update: {},
+      create: {
+        fromNode: {
+          connect: { id: 1},
+        },
+        toNode: {
+          connect: { id: 2},
+        },
+      },
+    }),
     prisma.users.upsert({
       where: { email: 'rauchg@vercel.com' },
       update: {},
@@ -27,16 +49,6 @@ async function main() {
         email: 'rauchg@vercel.com',
         image:
           'https://pbs.twimg.com/profile_images/1576257734810312704/ucxb4lHy_400x400.jpg',
-      },
-    }),
-    prisma.users.upsert({
-      where: { email: 'lee@vercel.com' },
-      update: {},
-      create: {
-        name: 'Lee Robinson',
-        email: 'lee@vercel.com',
-        image:
-          'https://pbs.twimg.com/profile_images/1587647097670467584/adWRdqQ6_400x400.jpg',
       },
     }),
     await prisma.users.upsert({
