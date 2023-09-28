@@ -3,7 +3,7 @@ import prisma from '../lib/prisma'
 async function main() {
   const response = await Promise.all([
     prisma.graph.upsert({
-      where: { name: 'graph 1' },
+      where: { id: 1 },
       update: {},
       create: {
         name: 'graph 1',
