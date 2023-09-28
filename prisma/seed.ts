@@ -9,7 +9,7 @@ async function main() {
         name: 'graph 1',
       },
     }),
-    prisma.graph.upsert({
+    prisma.node.upsert({
       where: { id: 1 },
       update: {},
       create: {
