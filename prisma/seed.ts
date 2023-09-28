@@ -9,7 +9,16 @@ async function main() {
         name: 'graph 1',
       },
     }),
-
+    prisma.graph.upsert({
+      where: { id: 1 },
+      update: {},
+      create: {
+        label: 'node 1',
+        graph: {
+          connect: { id: 1},
+        },
+      },
+    }),
     prisma.users.upsert({
       where: { email: 'rauchg@vercel.com' },
       update: {},
