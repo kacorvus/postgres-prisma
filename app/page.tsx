@@ -12,6 +12,7 @@ export const preferredRegion = 'home'
 export const dynamic = 'force-dynamic'
 
 async function getGraph() {
+  /* 
   const graph = await prisma.graph.findUnique({
       where: {
           id: 1,
@@ -29,6 +30,8 @@ async function getGraph() {
       }
   })
   return graph
+  */
+  return {}
 }
 
 export default async function Home() {
@@ -44,7 +47,7 @@ export default async function Home() {
         <ExpandingArrow />
       </Link>
       <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        {graph!.nodes[0].outgoingEdges[0].toNode.label}
+        {"hi"}
       </h1>
       <Suspense fallback={<TablePlaceholder />}>
         <Table />

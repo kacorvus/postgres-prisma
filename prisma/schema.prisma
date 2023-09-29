@@ -11,33 +11,25 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model users {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  image     String
-  createdAt DateTime @default(now())
-}
+// model Graph {
+//  id Int @id @default(autoincrement())
+//  name String
+//  nodes Node[]
+//}
 
-model Graph {
-  id Int @id @default(autoincrement())
-  name String
-  nodes Node[]
-}
+// model Node {
+//  id Int @id @default(autoincrement())
+//  label String @unique
+//  graph Graph @relation(fields: [graphId], references: [id])
+//  graphId Int
+//  outgoingEdges Edge[] @relation("OutgoingEdges")
+//  incomingEdges Edge[] @relation("IncomingEdges")
+//} 
 
-model Node {
-  id Int @id @default(autoincrement())
-  label String @unique
-  graph Graph @relation(fields: [graphId], references: [id])
-  graphId Int
-  outgoingEdges Edge[] @relation("OutgoingEdges")
-  incomingEdges Edge[] @relation("IncomingEdges")
-}
-
-model Edge {
-    id Int @id @default(autoincrement())
-    fromNode Node @relation("OutgoingEdges", fields: [fromNodeId], references: [id])
-    fromNodeId Int
-    toNode Node @relation("IncomingEdges", fields: [toNodeId], references: [id])
-    toNodeId Int
-}
+// model Edge {
+//    id Int @id @default(autoincrement())
+//    fromNode Node @relation("OutgoingEdges", fields: [fromNodeId], references: [id])
+//    fromNodeId Int
+//    toNode Node @relation("IncomingEdges", fields: [toNodeId], references: [id])
+//    toNodeId Int
+// }

@@ -9,6 +9,7 @@ async function main() {
         name: 'graph 1',
       },
     }),
+    /*
     await prisma.node.upsert({
       where: { id: 1 },
       update: {},
@@ -41,26 +42,7 @@ async function main() {
         },
       },
     }),
-    prisma.users.upsert({
-      where: { email: 'rauchg@vercel.com' },
-      update: {},
-      create: {
-        name: 'Guillermo Rauch',
-        email: 'rauchg@vercel.com',
-        image:
-          'https://pbs.twimg.com/profile_images/1576257734810312704/ucxb4lHy_400x400.jpg',
-      },
-    }),
-    await prisma.users.upsert({
-      where: { email: 'stey@vercel.com' },
-      update: {},
-      create: {
-        name: 'Steven Tey',
-        email: 'stey@vercel.com',
-        image:
-          'https://pbs.twimg.com/profile_images/1506792347840888834/dS-r50Je_400x400.jpg',
-      },
-    }),
+    */
   ])
   console.log(response)
 }
